@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import MainPage from '../../components/Layout/MainPage'
 import { locations } from '../../data.js'
 import Location from './Location'
+import "./Location.css"
 
 const Locations = () => {
     const [data, setData] = useState(locations);
@@ -14,7 +15,7 @@ const Locations = () => {
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Address</th>
-                            <th scope="col">#Classes</th>
+                            <th scope="col">Classes</th>
                             <th scope="col">Status</th>
                             <th scope="col">Last view</th>
                             <th scope="col"></th>

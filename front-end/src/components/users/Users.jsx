@@ -1,7 +1,10 @@
 import React from 'react'
-import MainPage from '../../components/Layout/MainPage';
-import { users } from '../../data.js';
-import User from './User';
+import MainPage from '../../components/Layout/MainPage'
+import { users } from '../../data.js'
+import User from './User'
+import './Users.css'
+
+
 const Users = () => {
   return (
     <MainPage>
