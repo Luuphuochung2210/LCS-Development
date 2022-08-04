@@ -1,23 +1,21 @@
-.location-page{
-    display: flex;
+.func-btn{
+    display:grid;
 }
-.delete1 .delete-btn1 {
-    width: 75px;
+
+.delete .delete-btn {
+    width: 80px;
     height: 50px;
     outline: none;
     background-color: #bdcad9;
     background-image: linear-gradient(315deg, #bdcad9 29%, #e1dada 65%);    
     border: none;
     border-radius: 10%;
+    margin: 5px;
 }
 
-.delete1 .delete-btn1:hover{
+.delete .delete-btn:hover{
     background: #EC7063;
     font-size:  17px;
-}
-
-.delete1{
-    margin: 0 -35px;
 }
 
 tbody, th{

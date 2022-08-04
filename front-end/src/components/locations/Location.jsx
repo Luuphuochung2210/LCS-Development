@@ -9,9 +9,11 @@ const Location = ({item}) => {
         <td>{item.class}</td>
         <td>{item.status}</td>
         <td>{item.lastView}</td>  
-        <div className='delete'>
-        <button className="delete-btn" type='submit'><span>x</span></button>
-        </div> 
+        <div className='location-page'>
+          <div className='delete1'>
+           <button className="delete-btn1" type='submit'>Delete</button>
+          </div>
+        </div>
     </tr>
   )
 }
