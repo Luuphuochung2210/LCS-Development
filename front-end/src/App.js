@@ -13,6 +13,7 @@ import Students from './components/students/Students';
 import StudentForm from './components/students/StudentForm';
 import Classes from './components/classes/Classes';
 import ClassForm from './components/classes/ClassForm';
+import LocationImport from './components/locations/LocationImport';
 function App() {
   
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/' element={<PrivateRoute><Locations/></PrivateRoute>}/>
           
         <Route path='/locations' element={<PrivateRoute><Locations/></PrivateRoute>}/>
+        <Route path='/locations/import' element={<PrivateRoute><LocationImport/></PrivateRoute>}/>
           
         <Route path='/users' element={<PrivateRoute><Users/></PrivateRoute>}/>
         <Route path='/students' element={<PrivateRoute><Students/></PrivateRoute>}/>
