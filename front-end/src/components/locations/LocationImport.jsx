@@ -2,19 +2,20 @@ import React, { useState, useRef } from 'react'
 import MainPage from '../../components/Layout/MainPage'
 import Papa from "papaparse";
 import ImportRows from './ImportRows';
+import { importLocation } from '../../api/Location/importLocation.js';
 
 const allowedExtensions = ["csv"];
 const LocationImport = () => {
    // This state will store the parsed data
    const [data, setData] = useState([]);
-     
+    const [isCsvValid, setIsCsvValid] = useState(false);
    // It state will contain the error when
    // correct file extension is not used
    const [error, setError] = useState("");
     
    // It will store the file uploaded by the user
    const [file, setFile] = useState("");
-
+ 
    // This function will be called when
    // the file input changes
    const handleFileChange = (e) => {
@@ -37,6 +38,9 @@ const LocationImport = () => {
            setFile(inputFile);
        }
    };
+   const handldeImport =()=>{
+        importLocation(data);
+   }
    const handleParse = () => {
         
        // If user clicks the parse button without
@@ -53,7 +57,14 @@ const LocationImport = () => {
            const csv = Papa.parse(target.result, { header: true });
            const parsedData = csv?.data;
            const columns = Object.keys(parsedData[0]);
-           setData(parsedData);
+           if(JSON.stringify(columns) === JSON.stringify(["ID","Address","Status"])){
+            setIsCsvValid(true);
+            setData(parsedData);
+           }else{
+            setIsCsvValid(false);
+            
+           }
+           
             
        };
        reader.readAsText(file);
@@ -79,7 +90,7 @@ const LocationImport = () => {
             </div>
            
         </div>
-                <table className='table'>
+                {isCsvValid&&<table className='table'>
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -93,7 +104,8 @@ const LocationImport = () => {
                             data?.map((item, index)=> <ImportRows key={index} item={item}/>)
                         }
                     </tbody>
-                </table>
+                    <button onClick={handldeImport}>Import</button>
+                </table>}
             </div>
         </MainPage>
   )
