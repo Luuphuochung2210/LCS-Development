@@ -24,6 +24,7 @@ const Navbar = () => {
       window.location.replace("/login");
     }
   return (
+
     <div className='navbar-expand-lg md-3'>
     <nav className="navbar navbar-expand-sm">
                 <div className="container-fluid">
@@ -67,10 +68,22 @@ const Navbar = () => {
                             <p className="my-auto ms-3 " style={{textAlign:"center"}}>{currentUser?currentUser.email:localEmail}</p>
                             </div>                   
                       </div>
+
                     </div>
-                   </div>
-</nav>
-</div>     
+                  </div>
+                <div>
+                    <h5>{currentUser?currentUser.name:'Learning Center System'}</h5>
+                    <small>{currentUser?currentUser.email:'LCS@gmail.com'}</small>
+                </div>
+              
+            </div>
+        </header>
+    </div>
   )
 }
 export default Navbar
+
+
+
+
+

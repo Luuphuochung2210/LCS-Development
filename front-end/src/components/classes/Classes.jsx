@@ -3,6 +3,7 @@ import MainPage from '../../components/Layout/MainPage'
 import { classes } from '../../data.js'
 import Class from './Class'
 import { Link } from "react-router-dom";
+import "./Class.css"
 
 const Classes = () => {
     const [data, setData] = useState(classes);

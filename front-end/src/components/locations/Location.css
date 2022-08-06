@@ -1,18 +1,43 @@
-.delete .delete-btn {
-    width: 32px;
-    height: 32px;
+.location-page{
+    display: flex;
+}
+.delete1 .delete-btn1 {
+    width: 75px;
+    height: 50px;
     outline: none;
     background-color: #bdcad9;
     background-image: linear-gradient(315deg, #bdcad9 29%, #e1dada 65%);    
     border: none;
-    border-radius: 50%;
+    border-radius: 10%;
 }
 
-.delete .delete-btn:hover{
-    background: #f2e5d9;
+.delete1 .delete-btn1:hover{
+    background: #EC7063;
+    font-size:  17px;
 }
 
-.mt-5 {
-    padding-left: 7px;
-    font-size: 43px;
+.delete1{
+    margin: 0 -35px;
+}
+
+tbody, th{
+    text-align :left;
+}
+
+@media screen and (max-width: 1300px) {
+    .delete1{
+        margin: 0 -30px;
+    }    
+}
+
+@media screen and (max-width: 1300px) {
+    .delete1{
+        margin: 0 -20px;
+    }    
+}
+
+@media screen and (max-width: 800px) {
+    .delete1{
+        margin: 0px;
+    }    
 }

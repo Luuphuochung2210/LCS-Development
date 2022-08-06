@@ -1,8 +1,10 @@
 import React from 'react'
+
 import MainPage from '../../components/Layout/MainPage';
 import { users } from '../../data.js';
 import User from './User';
 import { Link } from "react-router-dom";
+
 const Users = () => {
   return (
     <MainPage>

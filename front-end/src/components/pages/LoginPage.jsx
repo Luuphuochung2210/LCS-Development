@@ -5,7 +5,8 @@ import * as yup from "yup";
 import { useDispatch, useSelector  } from 'react-redux';
 import { fetchLogin, } from '../../freatures/auth/authSlice';
 import { useNavigate  } from 'react-router-dom';
-
+import './LoginPage.css';
+import Footer from './Footer';
 
 const schema = yup.object({
   email: yup.string().email('Must be a valid email').max(255).required('Email is required'),
@@ -33,33 +34,34 @@ const LoginPage = () => {
     dispatch(fetchLogin(JSON.stringify(data)));
   };
   return (
-    <div className="container-sm  shadow p-5 " >
-        <h2>LCS</h2>
-        {(loginStatus == "failed")?<p style={{color: "red"}}>Incorrect email or password!</p>:"" }
-        <form onSubmit={handleSubmit(onSubmit)} >
-            <div className="mb-3">
-              <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-              <input {...register("email")} type="email" className="form-control"  aria-describedby="emailHelp"  required/>
-              <p>{errors.email?.message}</p>
-            </div>
-            <div className="mb-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-              <input {...register("password")} type="password" className="form-control"   required/>
-              <p>{errors.password?.message}</p>
-            </div>
-            <div className="mb-3 d-flex" >
-              <button id="submit" type="submit" className="btn btn-outline-success w-100">{loginStatus=='loading'?'Logging...':'Login'}</button>
+  <body>    
+    <div className="Login">
+      <div className='form-box'>
+        <div className='button-box'>
+          <div id='btn'></div>
+            <a href="/login" className='Login-btn'>Login</a>
+            <a href="/register" className='Register-btn'>Register</a>          
+          </div>            
+        <div className='social-icons'>
+             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.344/static/media/google-logo.e086107b.svg" alt=""></img> 
+             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.344/static/media/microsoft-logo.42b61fa1.svg" alt=""></img>
+             <img src="https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.344/static/media/apple-logo.4f2453fb.svg" alt=""></img>
+        </div>
+          {(loginStatus == "failed")?<p style={{color: "red", textAlign:"center"}}>Incorrect email or password!</p>:"" }
 
-            </div>
-            <div className="mb-3 d-flex justify-content-between" >
-              <a href="/forgotpassword" className="info">Forgot password</a>
-              <a href="/register" className="info">Create an account</a>
-            </div>
-            
-            
-          </form>
-    </div>
-  )
+         <form onSubmit={handleSubmit(onSubmit)} id='login' className='input-group' >
+            <input {...register("email")} type='email' className="input-box" placeholder='Enter your email' required></input>
+            <p>{errors.email?.message}</p>
+            <input {...register("password")} type='password' className="input-box" placeholder='Enter your password' required></input>
+            <p>{errors.password?.message}</p>
+            <button type='submit' className="submit-btn3">{loginStatus==='loading'?'Logging...':'Login'}</button>
+            <a href="/forgotpassword" className='forgot'><i>Forgot your password ?</i></a>
+         </form>
+        </div> 
+ <Footer />
+      </div>
+  </body>
+ )
 }
 
 export default LoginPage
