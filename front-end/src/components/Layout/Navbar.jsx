@@ -7,7 +7,8 @@ import './Navbar.css';
 const Navbar = () => {
     
     const currentUser = useSelector(state=>state.auth.currentUser);
-    const username = localStorage.getItem("username");
+    const localName = localStorage.getItem("name");
+    const localEmail = localStorage.getItem("email");
     const handleToggle =()=>{
         document.getElementById('toggle').classList.toggle('show')
     }
@@ -62,8 +63,8 @@ const Navbar = () => {
                               <a href='#' onClick={handleLogout}>Log out</a>
                             </div> </div>
                             <div>
-                            <p className="my-auto ms-3 "  style={{fontWeight: "bold", textAlign:"center"}}>{currentUser?currentUser.name:'Learning Center System'}</p>
-                            <p className="my-auto ms-3 " style={{textAlign:"center"}}>{currentUser?currentUser.email:'LCS@gmail.com'}</p>
+                            <p className="my-auto ms-3 "  style={{fontWeight: "bold", textAlign:"center"}}>{currentUser?currentUser.name:localName}</p>
+                            <p className="my-auto ms-3 " style={{textAlign:"center"}}>{currentUser?currentUser.email:localEmail}</p>
                             </div>                   
                       </div>
                     </div>

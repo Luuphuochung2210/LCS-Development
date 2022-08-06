@@ -5,7 +5,7 @@ import ImportRows from './ImportRows';
 import { importLocation } from '../../api/Location/importLocation.js';
 
 const allowedExtensions = ["csv"];
-const LocationImport = () => {
+const ImportUsers = () => {
    // This state will store the parsed data
    const [data, setData] = useState([]);
     const [isCsvValid, setIsCsvValid] = useState(false);
@@ -57,7 +57,8 @@ const LocationImport = () => {
            const csv = Papa.parse(target.result, { header: true });
            const parsedData = csv?.data;
            const columns = Object.keys(parsedData[0]);
-           if(JSON.stringify(columns) === JSON.stringify(["ID","Address","Status"])){
+           
+           if(JSON.stringify(columns) === JSON.stringify(["Email","Name","Password"])){
             setIsCsvValid(true);
             setData(parsedData);
            }else{
@@ -73,7 +74,7 @@ const LocationImport = () => {
         <MainPage>
             <div>
             
-                <h2 className='mt-5'>Locations</h2>
+                <h2 className='mt-5'>Users</h2>
                 <div>
             <label htmlFor="csvInput" style={{ display: "block" }}>
                 Enter CSV File
@@ -93,11 +94,10 @@ const LocationImport = () => {
                 {isCsvValid&&<table className='table'>
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Password</th>
                             <th scope="col"></th>
-                            
                         </tr>
                     </thead>
                     <tbody>
@@ -108,8 +108,9 @@ const LocationImport = () => {
                     <button onClick={handldeImport}>Import</button>
                 </table>}
             </div>
+            
         </MainPage>
   )
 }
 
-export default LocationImport
+export default ImportUsers

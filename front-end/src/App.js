@@ -14,6 +14,7 @@ import StudentForm from './components/students/StudentForm';
 import Classes from './components/classes/Classes';
 import ClassForm from './components/classes/ClassForm';
 import LocationImport from './components/locations/LocationImport';
+import ImportUsers from './components/users/ImportUsers';
 function App() {
   
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/locations/import' element={<PrivateRoute><LocationImport/></PrivateRoute>}/>
           
         <Route path='/users' element={<PrivateRoute><Users/></PrivateRoute>}/>
+        <Route path='/users/import' element={<PrivateRoute><ImportUsers></ImportUsers></PrivateRoute>}/>
         <Route path='/students' element={<PrivateRoute><Students/></PrivateRoute>}/>
         <Route path='/students/:id' element={<PrivateRoute><StudentForm/></PrivateRoute>}/>
         <Route path='/classes' element={<PrivateRoute><Classes/></PrivateRoute>}/>
