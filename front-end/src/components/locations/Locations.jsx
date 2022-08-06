@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import MainPage from '../../components/Layout/MainPage'
 import { locations } from '../../data.js'
 import Location from './Location'
+
+import { Link } from "react-router-dom";
 import "./Location.css"
 
 const Locations = () => {
@@ -10,6 +12,7 @@ const Locations = () => {
         <MainPage>
             <div>
                 <h2 className='mt-5'>Locations</h2>
+                <Link to="/locations/import" className="btn btn-outline-success p-1">Import CSV</Link>
                 <table className='table'>
                     <thead>
                         <tr>
